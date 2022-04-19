@@ -25,7 +25,8 @@ public class LotteryApplication {
 				new AuditingHandler(lotteryService)
 				);
 		standardLotteryService.setSelf(lotteryService);
-		
+		// jdk.proxy1.$Proxy0
+		System.err.println(lotteryService.getClass().getName());
 		lotteryService.draw(60, 6, 10)
 		              .forEach(System.out::println);
 	}
