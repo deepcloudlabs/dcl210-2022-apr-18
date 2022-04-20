@@ -2,8 +2,11 @@ package com.example.random.service.business;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import com.example.random.service.QualityLevel;
 import com.example.random.service.RandomNumberService;
+import com.example.random.service.ServiceQuality;
 
+@ServiceQuality(value=QualityLevel.FAST)
 public class FastRandomNumberService implements RandomNumberService {
 
 	@Override

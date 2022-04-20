@@ -12,9 +12,9 @@ public class BinanceWebSocketClient {
 
 	public static void main(String[] args) {
 		var listener = new BinanceWebsocketListener();
-		var httpClient = HttpClient.newHttpClient()
-				                   .newWebSocketBuilder()
-				                   .buildAsync(URI.create(BINANCE_WS_API), listener);
+		HttpClient.newHttpClient()
+	               .newWebSocketBuilder()
+	               .buildAsync(URI.create(BINANCE_WS_API), listener);
 		try {TimeUnit.SECONDS.sleep(60);} catch (InterruptedException e) {}		
 	}
 
