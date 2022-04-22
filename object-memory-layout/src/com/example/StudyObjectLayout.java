@@ -8,6 +8,7 @@ import org.openjdk.jol.vm.VM;
 public class StudyObjectLayout {
      // -XX:-UseCompressedOops
 	// -XX:AutoBoxCacheMax=
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		int x = 42; // 4B
 		Integer y = 42; // 12B + 4B = 16B + 8B = 24B

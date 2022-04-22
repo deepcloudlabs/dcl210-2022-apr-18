@@ -6,7 +6,6 @@ import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,9 +51,15 @@ public class CountryRestController {
 	}
 
 	@PostMapping
-	@Transactional(isolation = Isolation.REPEATABLE_READ )
+	// AOP
+	// FLAT MODEL
+	// Java SE -> Java EE, Spring
+	// XA TX -> Transaction Coordinator (spring-tx) -> 2PC -> JDBC XA Driver
+	@Transactional
 	public Country addCountry(@RequestBody Country country) {
 		countryRepository.save(country);
+//		countryRepository.saveAndFlush(country);
+//		countryRepository.flush();
 		return country;
 	}
 }
